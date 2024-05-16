@@ -1,19 +1,20 @@
 .buttonDesign {
   height: 3.5em;
   width: 24em;
-  background-color: red;
+  background-color: rgb(255, 0, 47);
   border-radius: 1em;
   transition: 0.3s;
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-weight: 1em;
+  font-size: bold;
+  font-weight: 2em;
   margin: 1em;
 }
 
 .buttonDesign:hover {
   transition: 0.3s;
   cursor: pointer;
-  background-color: darkred;
+  background-color: rgb(229, 3, 3);
 }

@@ -23,12 +23,11 @@ a:hover {
 }
 
 body {
-  background-image: url(../weCare.png);
+  background-color: cadetblue;
   margin: 0;
   display: flex;
   min-width: 320px;
   min-height: 100vh;
-
 }
 
 h1 {

@@ -47,7 +47,7 @@ export const Login = () => {
         dispatch(login({ credentials: passport }));
         //console.log(passport, uDecodificado, answer.data);
 
-        setMsg(`${uDecodificado.message}, Welcome back .`);
+        setMsg(`${uDecodificado.email}, Welcome back .`);
 
         setTimeout(() => {
           navigate("/login");
@@ -80,6 +80,8 @@ export const Login = () => {
         onChange={inputHandler}
       />
       <CButton title={"login me"} clickFunction={loginMe} />
+      {msg !== "" && <div>{msg}</div>}
+      {loginError !== "" ? <div>{loginError}</div> : null}
     </div>
   );
 };

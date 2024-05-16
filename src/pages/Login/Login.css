@@ -2,7 +2,9 @@
   height: 100vh;
   width: 100vw;
 
-  background-color: rgb(168, 223, 224);
+  background-image: url(../weCare.png);
+  background-size: cover;
+  background-position: center;
 
   display: flex;
   flex-direction: column;
