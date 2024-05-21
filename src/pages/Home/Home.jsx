@@ -36,17 +36,11 @@ export const Home = () => {
   };
   return (
     <>
-  
-
-      <h2>WE CARE APP </h2>
-
-
       <div className="card">
+        <h2>WE CARE APP </h2>
         <button onClick={() => loginMe(user)}>Login as User </button>
         <br />
         <button onClick={() => loginMe(superadmin)}>Login as SuperAdmin</button>
-
-  
       </div>
     </>
   );
