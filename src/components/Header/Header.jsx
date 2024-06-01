@@ -35,6 +35,7 @@ export const Header = () => {
         </>
       ) : (
         <>
+          <CNavigator title={"register"} path="/register" />
           <CNavigator title={"login"} path="/login" />
           <div className="header" onClick={() => navigate("/login")}>
             <CNavigator />
