@@ -10,6 +10,7 @@ export const userSlice = createSlice({
       email: "",
       id: "",
     },
+    vecesLogeado: 10,
   },
   // receive a state and an action and return a new state
   reducers: {
@@ -17,6 +18,7 @@ export const userSlice = createSlice({
       return {
         ...state,
         ...action.payload,
+        vecesLogeado: state.vecesLogeado + 1,
       };
     },
 
@@ -28,6 +30,13 @@ export const userSlice = createSlice({
           email: "",
           id: "",
         },
+        vecesLogeado: state.vecesLogeado,
+      };
+    },
+    resetCount: (state, action) => {
+      return {
+        ...state,
+        vecesLogeado: 0,
       };
     },
   },
@@ -38,6 +47,7 @@ export const { login, logout } = userSlice.actions;
 
 // we define and export the methods that will allow us to come to the storage to read information
 export const getUserData = (state) => state.user;
+export const getLoggedAmount = (state) => state.user.vecesLogeado;
 // método que nos dice si el usuario logeado es admin o no para uso en rutas de admins
 export const amIAdmin = (state) =>
   state.user.decodificado.userRole === "superadmin";

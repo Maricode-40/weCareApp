@@ -9,6 +9,7 @@ import { decodeToken } from "react-jwt";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
+
 export const Login = () => {
   const navigate = useNavigate();
   const [msg, setMsg] = useState("");
@@ -47,10 +48,10 @@ export const Login = () => {
         dispatch(login({ credentials: passport }));
         //console.log(passport, uDecodificado, answer.data);
 
-        setMsg(`${uDecodificado.email}, Welcome back .`);
+        setMsg(`${uDecodificado.firstName}, Welcome back .`);
 
         setTimeout(() => {
-          navigate("/login");
+          navigate("/admin");
         }, 3000);
       }
     } catch (error) {

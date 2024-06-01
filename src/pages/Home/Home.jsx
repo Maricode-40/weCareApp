@@ -1,5 +1,4 @@
 import "./Home.css";
-
 import { useDispatch } from "react-redux";
 import { decodeToken } from "react-jwt";
 import { login } from "../../app/slices/userSlice";
@@ -7,12 +6,12 @@ import { loginCallBack } from "../../services/apiCalls";
 
 export const Home = () => {
   const user = {
-    email: "Gennaro94@yahoo.com",
+    email: "rolandarosa@yahoo.com",
     password: "12345678",
   };
 
   const superadmin = {
-    email: "superadmin3@superadmin.com",
+    email: "superadmin1@superadmin.com",
     password: "12345678",
   };
 
@@ -38,9 +37,11 @@ export const Home = () => {
     <>
       <div className="card">
         <h2>WE CARE APP </h2>
-        <button onClick={() => loginMe(user)}>Login as User </button>
+        <button onClick={() => loginMe(user)}>
+          Login to your User Profile{" "}
+        </button>
         <br />
-        <button onClick={() => loginMe(superadmin)}>Login as SuperAdmin</button>
+        <button onClick={() => loginMe(superadmin)}> SuperAdmin Login </button>
       </div>
     </>
   );

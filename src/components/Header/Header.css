@@ -1,0 +1,24 @@
+.headerDesign {
+  height: 14vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background-color: darkcyan;
+}
+
+.titleHeader {
+  margin: 1em;
+  color: white;
+  font-weight: bolder;
+}
+
+.titleHeader:hover {
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-end;
+}
