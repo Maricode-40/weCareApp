@@ -6,7 +6,7 @@ export const userSlice = createSlice({
     token: "",
     decodificado: {
       userRole: "",
-      name: "",
+      firstName: "",
       email: "",
       id: "",
     },

@@ -8,7 +8,7 @@ export const CInput = ({ type, name, className, onChange, value }) => {
       name={name}
       className={className}
       onChange={(e) => onChange(e)}
-      
+
       value={value}
     />
   );

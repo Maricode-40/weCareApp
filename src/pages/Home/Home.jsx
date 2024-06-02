@@ -35,6 +35,7 @@ export const Home = () => {
   };
   return (
     <>
+    
       <div className="card">
         <h2>WE CARE APP </h2>
         <button onClick={() => loginMe(user)}>

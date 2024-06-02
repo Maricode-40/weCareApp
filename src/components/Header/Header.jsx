@@ -23,7 +23,7 @@ export const Header = () => {
     <div className="headerDesign">
       {rdxUserData.credentials?.token ? (
         <>
-          {rdxUserData.credentials.token.decodificado === "superadmin" && (
+          {rdxUserData.credentials.token.userRole === "superadmin" && (
             <CNavigator title={"SuperAdmin"} path="/admin" />
           )}
 
@@ -39,6 +39,10 @@ export const Header = () => {
           <CNavigator title={"login"} path="/login" />
           <div className="header" onClick={() => navigate("/login")}>
             <CNavigator />
+            <CNavigator title={"Home"} path="/Home" />
+            <CNavigator title={"profile"} path="/profile" />
+
+            <CNavigator title={"superadmin"} path="/superappointments" />
           </div>
         </>
       )}
