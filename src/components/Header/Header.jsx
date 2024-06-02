@@ -41,7 +41,7 @@ export const Header = () => {
             <CNavigator />
             <CNavigator title={"Home"} path="/Home" />
             <CNavigator title={"profile"} path="/profile" />
-            <CNavigator title={"Client"} path="/client" />
+            <CNavigator title={"client"} path="/client" />
 
             <CNavigator title={"superadmin"} path="/superappointments" />
           </div>

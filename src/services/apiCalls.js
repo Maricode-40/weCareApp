@@ -99,7 +99,7 @@ export const createUserAppointments = async (userApps, token) => {
     },
   };
   console.log(userApps, "any date created?");
-  const res = await axios.post(`${API_URL}/appointments`, userApps, config);
+  const res = await axios.post(`${MAPI_URL}/appointments`, userApps, config);
   //console.log(config, "AY WEYYY");
 
   return res;
@@ -112,7 +112,7 @@ export const editAppointmentCall = async (userApps, token, id) => {
     },
   };
   console.log(userApps, "any date created?");
-  const res = await axios.put(`${API_URL}appointments/${id}`, userApps, config);
+  const res = await axios.put(`${MAPI_URL}appointments/${id}`, userApps, config);
   return res;
 };
 
@@ -124,7 +124,7 @@ export const bringUsersAppointments = async (id, token) => {
     },
   };
   //console.log(id, token);
-  const res = await axios.get(`${API_URL}users/${id}/appointments`, config);
+  const res = await axios.get(`${MAPI_URL}users/${id}/appointments`, config);
   console.log(res);
   return res.data;
 };
@@ -137,6 +137,6 @@ export const deleteAppointments = async (id, token) => {
     },
   };
 
-  const res = await axios.delete(`${API_URL}appointments/${id}`, config);
+  const res = await axios.delete(`${MAPI_URL}appointments/${id}`, config);
   return res;
 };
