@@ -1,0 +1,9 @@
+.userNewApps {
+  margin: 19px 5px;
+
+  text-align: center;
+  background-color: #54a0a0;
+  color: rgb(177, 58, 58);
+  padding: 60px 10px;
+  font-weight: bold;
+}

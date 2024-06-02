@@ -42,13 +42,14 @@ Used technologies:
 
 ## Objective
 
-In the following project I have built the frontend of a future ONG Mobile First Application using my previous backend project. It has been done as practical experience with react js. and redux as tools.
+In the following project I have built the frontend of an NGO Mobile First App and connecting together  with  WeCareApp backend. 
+
+ It has been done as practical experience with react js. and redux as tools, 
 
 ## About the project
 
-The aim of this project has been to create the  visual part based on a previusly created relational database with different endpoints user and superadministrator views. The  development of the ONG WeCareApp includes the ability from client = Customers are capable to  Register, Log in/ log out. 
-
-They can also view their profile an personal data to update it. There are three different users the superadmin, the user (client) and the webcreator.
+The aim of this project has been to create the  visual part based for an already created relational database with different endpoints, the user and superadministrator views.
+ The  development of the ONG WeCareApp includes the ability from a client = Customer  to be capable of   Register, Log in/ log out but also They can  view their profile an personal data to update it. There are three different users the superadmin, the user (client) and the webcreator.
 
 As an extra:
 
@@ -62,24 +63,24 @@ Some of the views can be seen below:
 
 ### Home
 
-<img src="#">
+<img src="./public/home.png">
 
 ### Register
 
-<img src="#">
+<img src="./public/register.png">
 
 ### Profile
 
-<img src="#">
+<img src="./public/EditUser.png">
 
 ### ONG appointments/ wecreatror
 
-<img src="#">
+<img src="./public/appointmentsview.png">
 
 
 ## ADMIN views
 
-<img src="#">
+<img src="./public/adminview1.png">
 
 ## Installation
 
@@ -87,7 +88,9 @@ The project is made up of both backend and frontend, so it will be necessary to 
 
 The database can be found at the following link:
 
-[Database....]()
+
+ <a href="https://github.com/Maricode-40/weCareAppBackend"> Database in here! </a>
+
 
 You can follow the steps below:
 
@@ -99,7 +102,7 @@ You can follow the steps below:
 5. New dependencies: `react-redux ` `redux-persist ` ● `redux-thunk `
    ` reduxjs/toolkit` Install all of them via your Node package Manager.
 6. Connect the server`$ npm run dev`
-7. <a href="https://github.com/Maricode-40/Studiotatto-backend"> Check Backend in full </a>
+7. <a href="https://github.com/Maricode-40/weCareAppBackend"> Check Backend in full </a>
 
 </a>
 
@@ -123,9 +126,10 @@ superadmin email:
 ## Future Improvements
 
 1.- Implement a search input for the SuperAdministrator  and  optimised code.
-Pagination 
 
-2.- We will install Cypress to run some testings on the Frontend side.
+2.- Pagination for the appointments and users.
+
+2.- I will install Cypress to run some testings on the Frontend side.
 
 ## Licence
 

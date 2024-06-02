@@ -7,6 +7,7 @@ import { AdministratorProfile } from "../../pages/AdministratorProfile/Administr
 import { Appointments } from "../Appointments/Appointments";
 import { Profile } from "../Profile/Profile";
 
+
 export const Body = () => {
   return (
     <Routes>
@@ -14,7 +15,6 @@ export const Body = () => {
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/superappointments" element={<Appointments />} />
-
       <Route path="/profile" element={<Profile />} />
       <Route path="/register" element={<Register />} />
       <Route
