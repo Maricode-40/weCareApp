@@ -123,13 +123,17 @@ superadmin email:
 
 ---
 
-## Future Improvements
+## Future Improvements 
+ (Any suggestions, I´m already looking forward to it,  thanks)
 
 1.- Implement a search input for the SuperAdministrator  and  optimised code.
 
 2.- Pagination for the appointments and users.
 
-2.- I will install Cypress to run some testings on the Frontend side.
+3.- I will install Cypress to run some testings on the Frontend side.
+
+4.- A bit more of CSS 
+
 
 ## Licence
 

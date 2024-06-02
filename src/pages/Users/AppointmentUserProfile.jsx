@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUserData } from "../../app/slices/userSlice";
@@ -14,7 +13,6 @@ import { useNavigate } from "react-router-dom";
 import { CustomInput } from "../../components/CustomInput/CustomInput";
 import dayjs from "dayjs";
 import { DayPicker } from "react-day-picker";
- 
 
 export const AppointmentUserProfile = () => {
   const [userApps, setUserApps] = useState({
@@ -58,10 +56,10 @@ export const AppointmentUserProfile = () => {
   useEffect(() => {
     //console.log("holassss ");
     if (citas.length === 0) {
-      const fetchAppointments = async () => {
+      const fetchAppointments = async (id) => {
         try {
           console.log(token);
-          const fetched = await bringUsersAppointments(userId, token);
+          const fetched = await bringUsersAppointments(id, token);
           console.log(fetched.appointments);
           setCitas(fetched.appointments);
         } catch (error) {
@@ -123,7 +121,7 @@ export const AppointmentUserProfile = () => {
       <CustomInput
         typeProp="Date"
         nameProp="dayDate"
-        placeholderProp="AppointmentDate"
+        placeholderProp="dayDate"
         handlerProp={(e) => inputHandlerDates(e)}
         onBlur={(e) => onBlurHandler(e)}
       />
