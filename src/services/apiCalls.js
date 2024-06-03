@@ -59,6 +59,7 @@ export const updateProfile = async (data, token) => {
   return res;
 };
 
+//as admin // 
 export const bringAppointments = async (id, token) => {
   // puedo preparar la información para enviar al servidor
   const config = {
@@ -139,4 +140,17 @@ export const deleteAppointments = async (id, token) => {
 
   const res = await axios.delete(`${MAPI_URL}appointments/${id}`, config);
   return res;
+};
+
+export const bringAllAppointments = async (token, page) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const res = await axios.get(
+    `${MAPI_URL}/appointments/?page=${page}`,
+    config
+  );
+  return res.data;
 };

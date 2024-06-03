@@ -6,7 +6,7 @@ import { loginCallBack } from "../../services/apiCalls";
 
 export const Home = () => {
   const user = {
-    email: "rolandarosa@yahoo.com",
+    email: "Buster4@gmail.com",
     password: "12345678",
   };
 
@@ -35,7 +35,6 @@ export const Home = () => {
   };
   return (
     <>
-    
       <div className="card">
         <h2>WE CARE APP </h2>
         <button onClick={() => loginMe(user)}>

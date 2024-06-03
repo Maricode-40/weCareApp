@@ -7,6 +7,7 @@ import {
   createUserAppointments,
   editAppointmentCall,
   deleteAppointments,
+  bringAllAppointments,
 } from "../../services/apiCalls";
 import "./AppointmentUserProfile.css";
 import { useNavigate } from "react-router-dom";
@@ -22,7 +23,7 @@ export const AppointmentUserProfile = () => {
     webcreatorId: "",
     clientId: "",
   });
-
+  const [currentPage, setCurrentPage] = useState(1);
   const [appoints, setAppoints] = useState(Date());
   const [selected, setSelected] = useState();
   const [appointmentId, setAppointmentId] = useState([""]);
@@ -30,11 +31,13 @@ export const AppointmentUserProfile = () => {
   const [areYouDeletingMe, setAreYouDeletingMe] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [citas, setCitas] = useState([]);
+  const [totalPages, setTotalPages] = useState();
 
   // we get the data from Redux
   const userReduxData = useSelector(getUserData);
   const token = userReduxData.token;
   const userId = userReduxData.decodificado.userId;
+  const userType = userReduxData.token.userRole;
 
   const inputHandlerDates = (e) => {
     console.log(typeof e.target.value, e.target.name);
@@ -54,23 +57,28 @@ export const AppointmentUserProfile = () => {
   };
 
   useEffect(() => {
-    //console.log("holassss ");
-    if (citas.length === 0) {
-      const fetchAppointments = async (id) => {
-        try {
-          console.log(token);
-          const fetched = await bringUsersAppointments(id, token);
-          console.log(fetched.appointments);
-          setCitas(fetched.appointments);
-        } catch (error) {
-          console.log(error);
+    const fetchAppointments = async () => {
+      try {
+        if (userType === "client") {
+          const res = await bringUsersAppointments(userReduxData.token);
+          setCitas(res);
+        } else if (userType === "webcreator") {
+          const res = await bringAppointmentsWebcreator(userReduxData.token);
+          setCitas(res);
+        } else {
+          const res = await bringAllAppointments(
+            userReduxData.token,
+            currentPage
+          );
+          setCitas(res.appointmentments);
+          setTotalPages(res.total_pages);
         }
-      };
-
-      fetchAppointments();
-      console.log(citas);
-    }
-  }, [appointmentId]);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchAppointments();
+  }, [setCitas, currentPage, appointmentId]);
 
   const deleteApps = async (id) => {
     const res = await deleteAppointments(id, token);
@@ -157,7 +165,7 @@ export const AppointmentUserProfile = () => {
       <h4>Create Appointments</h4>
       <button onClick={() => dateCreation(userApps)}>Create</button>
       <div className="userNewApps">
-        {citas.length > 0 ? (
+        {citas?.length > 0 ? (
           <ul>
             {citas.map((appoints) => {
               return (

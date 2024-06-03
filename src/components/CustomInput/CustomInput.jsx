@@ -6,10 +6,10 @@ export const CustomInput = ({
   placeholderProp,
   handlerProp,
   onBlurHandler,
-  
+  errorText,
   value,
   isDisabled,
-  errorText,
+  
 }) => {
   // props, properties, propiedades, se reciben como un objeto
 

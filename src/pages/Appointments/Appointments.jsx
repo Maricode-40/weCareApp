@@ -21,7 +21,7 @@ export const Appointments = () => {
   const [selected, setSelected] = useState();
   const [appointmentId, setAppointmentId] = useState([""]);
   //we store them and then we retrieve/recall the appointments.
-  const [citas, setCitas] = useState([]);
+  const [citas, setCitas] = useState([1]);
 
   // we get the data from Redux
   const userReduxData = useSelector(getUserData);
