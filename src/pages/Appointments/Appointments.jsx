@@ -28,6 +28,7 @@ export const Appointments = () => {
   const token = userReduxData.token;
   const userId = userReduxData.decodificado.userId;
   const userRole = userReduxData.decodificado.Role;
+  const [totalAppointments, setTotalAppointments] = useState([]);
 
   const [totalPages, setTotalPages] = useState();
   const [currentPage, setCurrentPage] = useState(1);
@@ -51,11 +52,11 @@ export const Appointments = () => {
   };
 
   useEffect(() => {
-    console.log("holassss ");
+    //console.log("holassss ");
     if (citas.length === 0) {
       const fetchAppointments = async () => {
         try {
-          console.log(token);
+          //console.log(token);
           const fetched = await bringAppointments(userId, token);
           //console.log(fetched.dates);
           setCitas(fetched.dates);
@@ -126,7 +127,7 @@ export const Appointments = () => {
       <button onClick={() => dateCreation(appsDate)}>Create</button>
 
       <div className="appointsDesign">
-        {citas?.map((cita) => (
+        {citas.map((cita) => (
           <div key={cita.id}>
             <h1 className="appsNumber"> UserID: {cita.id} </h1>
 
