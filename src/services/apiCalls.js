@@ -59,7 +59,7 @@ export const updateProfile = async (data, token) => {
   return res;
 };
 
-//as admin // 
+//as admin //
 export const bringAppointments = async (id, token) => {
   // puedo preparar la información para enviar al servidor
   const config = {
@@ -67,6 +67,7 @@ export const bringAppointments = async (id, token) => {
       Authorization: `Bearer ${token}`,
     },
   };
+  c;
   const res = await axios.get(`${MAPI_URL}appointments`, config);
   console.log(res);
   return res.data;
@@ -113,7 +114,11 @@ export const editAppointmentCall = async (userApps, token, id) => {
     },
   };
   console.log(userApps, "any date created?");
-  const res = await axios.put(`${MAPI_URL}appointments/${id}`, userApps, config);
+  const res = await axios.put(
+    `${MAPI_URL}appointments/${id}`,
+    userApps,
+    config
+  );
   return res;
 };
 
@@ -148,9 +153,12 @@ export const bringAllAppointments = async (token, page) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  const res = await axios.get(
-    `${MAPI_URL}/appointments/?page=${page}`,
-    config
-  );
+  const res = await axios.get(`${MAPI_URL}/appointments/?page=${page}`, config);
   return res.data;
+};
+
+//get all webcreators for everyone
+export const getAllWebcreators = async () => {
+  const res = await axios.get(`${MAPI_URL}webcreators/`);
+  return res;
 };
