@@ -4,6 +4,7 @@ import { getUserData, logout } from "../../app/slices/userSlice";
 import { useEffect } from "react";
 import { CNavigator } from "../../components/CNavigator/CNavigator";
 import { useNavigate } from "react-router-dom";
+import { CLink } from "../../components/CLink/CLink";
 
 export const Header = () => {
   //Instancio Redux en modo lectura
@@ -26,8 +27,8 @@ export const Header = () => {
           {rdxUserData.credentials.token.userRole === "superadmin" && (
             <CNavigator title={"SuperAdmin"} path="/admin" />
           )}
-
           <CNavigator title={rdxUserData.credentials.name} path="/profile" />
+          <CLink path="/superappointments" title="Appointments" />
 
           <div onClick={() => dispatch(logout({ credentials: "" }))}>
             <CNavigator title={"logout"} path="/" />
@@ -35,15 +36,11 @@ export const Header = () => {
         </>
       ) : (
         <>
-          <CNavigator title={"register"} path="/register" />
+          <CLink path="/register" title="Register" />
           <CNavigator title={"login"} path="/login" />
           <div className="header" onClick={() => navigate("/login")}>
             <CNavigator />
-            <CNavigator title={"Home"} path="/Home" />
-            <CNavigator title={"profile"} path="/profile" />
-            <CNavigator title={"client"} path="/client" />
-
-            <CNavigator title={"superadmin"} path="/superappointments" />
+            <CLink path="/" title="Home" />
           </div>
         </>
       )}

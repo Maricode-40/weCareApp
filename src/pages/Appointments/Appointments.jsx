@@ -28,7 +28,7 @@ export const Appointments = () => {
   const token = userReduxData.token;
 
   const inputHandlerAppointment = (e) => {
-    console.log(typeof e.target.value, e.target.name);
+    //console.log(typeof e.target.value, e.target.name);
     setAppsDate((prevState) => ({
       ...prevState,
       [e.target.name]: e.target.value,
