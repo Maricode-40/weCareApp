@@ -21,18 +21,11 @@ export const Appointments = () => {
   const [selected, setSelected] = useState();
   const [appointmentId, setAppointmentId] = useState([""]);
   //we store them and then we retrieve/recall the appointments.
-  const [citas, setCitas] = useState([1]);
+  const [citas, setCitas] = useState([]);
 
   // we get the data from Redux
   const userReduxData = useSelector(getUserData);
   const token = userReduxData.token;
-  const userId = userReduxData.decodificado.userId;
-  const userRole = userReduxData.decodificado.Role;
-  const [totalAppointments, setTotalAppointments] = useState([]);
-
-  const [totalPages, setTotalPages] = useState();
-  const [currentPage, setCurrentPage] = useState(1);
-  //const userType = userReduxData.decodificado.Role;
 
   const inputHandlerAppointment = (e) => {
     console.log(typeof e.target.value, e.target.name);
@@ -52,14 +45,15 @@ export const Appointments = () => {
   };
 
   useEffect(() => {
-    //console.log("holassss ");
+    console.log("holassss ");
     if (citas.length === 0) {
+      console.log("AY WEEEYYYYY");
       const fetchAppointments = async () => {
         try {
-          //console.log(token);
-          const fetched = await bringAppointments(userId, token);
-          //console.log(fetched.dates);
-          setCitas(fetched.dates);
+          console.log(token);
+          const fetched = await bringAppointments(userReduxData, token);
+          console.log(fetched.data);
+          setCitas(fetched.data);
         } catch (error) {
           console.log(error);
         }
@@ -89,7 +83,7 @@ export const Appointments = () => {
       <CustomInput
         typeProp="date"
         nameProp="dayDate"
-        placeholderProp="AppointmentDate"
+        placeholderProp="dayDate"
         handlerProp={(e) => inputHandlerAppointment(e)}
         onBlur={(e) => onBlurHandler(e)}
       />
@@ -130,8 +124,8 @@ export const Appointments = () => {
         {citas.map((cita) => (
           <div key={cita.id}>
             <h1 className="appsNumber"> UserID: {cita.id} </h1>
-
-            <h2 className="listApps">Appointment Date: {cita.dayDate}</h2>
+            <h2 className="listApps"> Appointment Date: {cita.dayDate}</h2>
+            <h3 className="userSearch"> Description - {cita.description}</h3>
             <h3 className="userSearch"> Price - {cita.price}</h3>
           </div>
         ))}

@@ -61,17 +61,18 @@ export const updateProfile = async (data, token) => {
 
 //as admin //
 export const bringAppointments = async (id, token) => {
-  // puedo preparar la información para enviar al servidor
+
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
-  c;
   const res = await axios.get(`${MAPI_URL}appointments`, config);
   console.log(res);
   return res.data;
 };
+
+
 
 export const deleteAppointmentById = async (id, token) => {
   const config = {
@@ -88,9 +89,9 @@ export const appointmentCreate = async (appsDate, token) => {
       Authorization: `Bearer ${token}`,
     },
   };
-  //console.log(appsDate, "any admin date created?");
+  console.log(appsDate, "any admin date created?");
   const res = await axios.post(`${MAPI_URL}appointments`, appsDate, config);
-  //console.log(config, "Admincall");
+  console.log(config, "Admincall");
   return res;
 };
 //for user clients creation OK NOW
@@ -159,6 +160,6 @@ export const bringAllAppointments = async (token, page) => {
 
 //get all webcreators for everyone
 export const getAllWebcreators = async () => {
-  const res = await axios.get(`${MAPI_URL}webcreators/`);
+  const res = await axios.get(`${MAPI_URL}webcreator/`);
   return res;
 };
