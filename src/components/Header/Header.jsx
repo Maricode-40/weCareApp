@@ -33,6 +33,8 @@ export const Header = () => {
           <div onClick={() => dispatch(logout({ credentials: "" }))}>
             <CNavigator title={"logout"} path="/" />
           </div>
+          <CNavigator title={"client"} path="/client" />
+          <CLink path="/profile" title="profile" />
         </>
       ) : (
         <>
