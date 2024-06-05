@@ -1,15 +1,13 @@
 import "./CInput.css";
 
-
-export const CInput = ({ type, name, className, onChange, value }) => {
+export const CInput = ({ type, name, value, changeEmit }) => {
   return (
     <input
+      className="input-design"
       type={type}
       name={name}
-      className={className}
-      onChange={(e) => onChange(e)}
-
       value={value}
+      onChange={(e) => changeEmit(e)}
     />
   );
 };

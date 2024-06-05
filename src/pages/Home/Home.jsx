@@ -38,7 +38,7 @@ export const Home = () => {
       <div className="card">
         <h2>WE CARE APP </h2>
         <button onClick={() => loginMe(user)}>
-          Login to your User Profile{" "}
+          Login to your User Profile
         </button>
         <br />
         <button onClick={() => loginMe(superadmin)}> SuperAdmin Login </button>

@@ -4,12 +4,13 @@ import persistReducer from "redux-persist/es/persistReducer";
 import { configureStore } from "@reduxjs/toolkit";
 import { thunk } from "redux-thunk";
 //import { persistReducer } from "redux-persist";
-import appointmentSlice from "../app/slices/appointmentSlice.js"
+import appointmentSlice from "../app/slices/appointmentSlice.js";
 
 import userSlice from "./slices/userSlice.js";
 
 const reducers = combineReducers({
   user: userSlice,
+
   appointment: appointmentSlice,
 });
 

@@ -22,27 +22,27 @@ export const Header = () => {
 
   return (
     <div className="headerDesign">
+      <CLink path="/" title="Home" />
       {rdxUserData.credentials?.token ? (
         <>
           {rdxUserData.credentials.token.userRole === "superadmin" && (
-            <CNavigator title={"SuperAdmin"} path="/admin" />
+            <CNavigator title={"Super Admin"} path="/admin" />
           )}
-          <CNavigator title={rdxUserData.credentials.name} path="/profile" />
-          <CLink path="/superappointments" title="Appointments" />
-
+          {rdxUserData.credentials.token.userRole === "client" && (
+            <CNavigator title={rdxUserData.credentials.name} path="/client" />
+          )}
           <div onClick={() => dispatch(logout({ credentials: "" }))}>
             <CNavigator title={"logout"} path="/" />
           </div>
-          <CNavigator title={"client"} path="/client" />
-          <CLink path="/profile" title="profile" />
         </>
       ) : (
         <>
-          <CLink path="/register" title="Register" />
           <CNavigator title={"login"} path="/login" />
-          <div className="header" onClick={() => navigate("/login")}>
+          <div className="headerDesign" onClick={() => navigate("/")}>
             <CNavigator />
-            <CLink path="/" title="Home" />
+            <CLink path="/superappointments" title="Appointments" />
+            <CLink path="/webcreators" title="Webcreators" />
+            <CLink path="/profile" title="Profile" />
           </div>
         </>
       )}

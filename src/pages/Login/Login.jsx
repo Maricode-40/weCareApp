@@ -1,5 +1,5 @@
 import { CButton } from "../../components/CButton/CButton";
-import { CInput } from "../../components/CInput/CInput";
+import { CInputs } from "../../components/CInputs/CInputs.jsx";
 import "./Login.css";
 import { useState } from "react";
 import { loginCallBack } from "../../services/apiCalls";
@@ -8,7 +8,6 @@ import { login, getUserData } from "../../app/slices/userSlice.js";
 import { decodeToken } from "react-jwt";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
 
 export const Login = () => {
   const navigate = useNavigate();
@@ -54,7 +53,6 @@ export const Login = () => {
           navigate("/admin");
         }, 3000);
       }
-    
     } catch (error) {
       console.log(error);
       if (error.code === "ERR_NETWORK") {
@@ -67,14 +65,14 @@ export const Login = () => {
 
   return (
     <div className="loginDesign">
-      <CInput
+      <CInputs
         type={"email"}
         name={"email"}
         className={"basic"}
         value={credentials.email || ""}
         onChange={inputHandler}
       />
-      <CInput
+      <CInputs
         type={"password"}
         name={"password"}
         className={"basic"}

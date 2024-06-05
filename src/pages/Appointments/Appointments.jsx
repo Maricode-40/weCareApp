@@ -18,7 +18,7 @@ export const Appointments = () => {
   });
 
   const [appointments, setAppointment] = useState(Date());
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState(null);
   const [appointmentId, setAppointmentId] = useState([""]);
   //we store them and then we retrieve/recall the appointments.
   const [citas, setCitas] = useState([]);
@@ -66,15 +66,24 @@ export const Appointments = () => {
 
   return (
     <>
+      <h3> Enter Client ID to create appointment </h3>
+      <CustomInput
+        typeProp="number"
+        nameProp="clientId"
+        placeholderProp="clientId"
+        handlerProp={(e) => inputHandlerAppointment(e)}
+        onBlur={(e) => onBlurHandler(e)}
+      />
       <div className="first">
         Actual date: {dayjs(appointments).format("dddd, MMMM D, YYYY h:mm A")}
       </div>
       <DayPicker
         mode="single"
         selected={selected}
-        onSelect={(e) =>
-          setSelected(dayjs(e).format("dddd, MMMM D, YYYY h:mm A"))
-        }
+        onSelect={(e) => {
+          const formattedDate = dayjs(e).toISOString();
+          setSelected(formattedDate);
+        }}
       />
       <div className="second">
         {selected && <div> Selected date: {selected}</div>}{" "}
@@ -87,6 +96,15 @@ export const Appointments = () => {
         handlerProp={(e) => inputHandlerAppointment(e)}
         onBlur={(e) => onBlurHandler(e)}
       />
+
+      <CustomInput
+        typeProp="text"
+        nameProp="description"
+        placeholderProp="description"
+        handlerProp={(e) => inputHandlerAppointment(e)}
+        onBlur={(e) => onBlurHandler(e)}
+      />
+
       <CustomInput
         typeProp="number"
         nameProp="price"
@@ -96,23 +114,9 @@ export const Appointments = () => {
       />
 
       <CustomInput
-        typeProp="text"
-        nameProp="description"
-        placeholderProp="description"
-        handlerProp={(e) => inputHandlerAppointment(e)}
-        onBlur={(e) => onBlurHandler(e)}
-      />
-      <CustomInput
         typeProp="number"
         nameProp="webcreatorId"
         placeholderProp="webcreatorId"
-        handlerProp={(e) => inputHandlerAppointment(e)}
-        onBlur={(e) => onBlurHandler(e)}
-      />
-      <CustomInput
-        typeProp="number"
-        nameProp="clientId"
-        placeholderProp="clientId"
         handlerProp={(e) => inputHandlerAppointment(e)}
         onBlur={(e) => onBlurHandler(e)}
       />

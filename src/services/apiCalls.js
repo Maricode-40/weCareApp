@@ -83,13 +83,13 @@ export const deleteAppointmentById = async (id, token) => {
   return axios.delete(`${MAPI_URL}appointments/${id}`, config);
 };
 //CREATE APPOINTMENTS AS ADMIN 1st route
-export const appointmentCreate = async (appsDate, token) => {
+export const appointmentCreate = async (appsDate,token) => {
   const config = {
     headers: {
       Authorization: `Bearer ${token}`,
     },
   };
-  console.log(appsDate, "any admin date created?");
+  console.log(appsDate, "any admin date created for the users?");
   const res = await axios.post(`${MAPI_URL}appointments`, appsDate, config);
   console.log(config, "Admincall");
   return res;
@@ -103,7 +103,7 @@ export const createUserAppointments = async (userApps, token) => {
   };
   console.log(userApps, "any date created?");
   const res = await axios.post(`${MAPI_URL}/appointments`, userApps, config);
-  //console.log(config, "AY WEYYY");
+  console.log(config, "AY WEYYY");
 
   return res;
 };
